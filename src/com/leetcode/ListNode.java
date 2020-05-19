@@ -2,7 +2,7 @@ package com.leetcode;
 
 /**
  * @author: gonghan
- * @description:
+ * @description: 节点类
  * @date: 2020/4/5
  */
 public class ListNode {
