@@ -1,13 +1,7 @@
-package com.leetcode;
-
 /**
- * @author: gonghan
- * @description: 002. 反转整数
+ * @author: Mr. Gong
  * @date: 2020/5/19
- */
-
-/**
- * 002. 反转整数
+ * @description: 007. 反转整数
  *
  * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
  * 示例 1:
@@ -30,20 +24,31 @@ package com.leetcode;
  * 链接：https://leetcode-cn.com/problems/reverse-integer
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class ReverseInteger_2 {
+public class Solution_007 {
     public int reverser(int x) {
         int ans = 0;
         while (x != 0) {
+            // 通过%10，取最后一位数字
             int pop = x % 10;
+            // 溢出判断条件
             if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && pop > 7)) {
                 return 0;
             }
             if (ans < Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 && pop < -8)) {
                 return 0;
             }
+            // 通过*10将低位赋值到高位
             ans = ans * 10 + pop;
+            // 通过/10取剩余的位数
             x /= 10;
         }
         return ans;
+    }
+
+    public static void main(String[] args) {
+        int in = 123;
+        Solution_007 solution0072 = new Solution_007();
+        int out = solution0072.reverser(in);
+        System.out.println(out);
     }
 }

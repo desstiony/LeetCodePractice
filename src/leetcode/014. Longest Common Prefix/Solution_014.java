@@ -1,12 +1,8 @@
-package com.leetcode;
-
 /**
- * @description: 最长公共前缀
- * @author: Mr.gong
- * @Data: 2019/8/9 16:03
- **/
-
-/*
+ * @author: Mr. Gong
+ * @date: 2019/8/9 16:03
+ * @description: 014. 最长公共前缀
+ *
  * 编写一个函数来查找字符串数组中的最长公共前缀。
  *
  * 如果不存在公共前缀，返回空字符串 ""。
@@ -25,7 +21,7 @@ package com.leetcode;
  * 所有输入只包含小写字母 a-z 。
  *
  * */
-public class Solution {
+public class Solution_014 {
     public String longestCommonPrefix(String[] strs) {
         // 数组为空返回 ""
         if (strs.length == 0) {
@@ -33,13 +29,13 @@ public class Solution {
         }
         String prefix = strs[0];
         // 遍历数组内的元素
-        for (int i = 0; i < strs.length; i++) {
+        for (String str : strs) {
             // 判断是否数组内是否存在 prefix
-            while (strs[i].indexOf(prefix) != 0){
+            while (str.indexOf(prefix) != 0) {
                 // if不存在 缩减子串长度 继续查找是否存在
                 prefix = prefix.substring(0, prefix.length() - 1);
                 // 如果不存在 返回 ""
-                if (prefix.isEmpty()){
+                if (prefix.isEmpty()) {
                     return "";
                 }
             }
@@ -48,9 +44,9 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution_014 solution014 = new Solution_014();
         String[] in = new String[]{"flower","flow","flight"};
-        String prefix = solution.longestCommonPrefix(in);
+        String prefix = solution014.longestCommonPrefix(in);
         System.out.println(prefix);
     }
 }

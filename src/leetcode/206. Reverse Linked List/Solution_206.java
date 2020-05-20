@@ -1,26 +1,32 @@
-package com.leetcode;
-
 /**
- * @author: gonghan
- * @description:
- * @date: 2020/4/5
- */
-
-/**
- * 206. 反转链表
- * 反转一个单链表。
- *
+ * @author: Mr. Gong
+ * @date: 2020/5/20
+ * @description: 206. 反转一个单链表。
  * 示例:
  *
  * 输入: 1->2->3->4->5->NULL
  * 输出: 5->4->3->2->1->NULL
  * 进阶:
  * 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+ *
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/reverse-linked-list·
+ * 链接：https://leetcode-cn.com/problems/reverse-linked-list
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class ListNodeReverse_206 {
+public class Solution_206 {
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+
+        @Override
+        public String toString() {
+            return val + "->" + (next == null ? "NULL" : next);
+        }
+    }
 
     // 迭代
     public ListNode reverseListIterate(ListNode head) {
@@ -43,7 +49,6 @@ public class ListNodeReverse_206 {
             return head;
         }
 
-
         ListNode curr = reverseListNodeRecursive(head.next);
         System.out.println("curr: \n    " + curr);
         System.out.println("head: \n    " + head);
@@ -53,9 +58,8 @@ public class ListNodeReverse_206 {
         return curr;
     }
 
-
     public static void main(String[] args) {
-        ListNodeReverse_206 lr = new ListNodeReverse_206();
+        Solution_206 lr = new Solution_206();
 
         ListNode l1 = new ListNode(1);
 
@@ -71,6 +75,5 @@ public class ListNodeReverse_206 {
         // 递归
         ListNode outListRecursive = lr.reverseListNodeRecursive(l1);
         System.out.println("out: \n    " + outListRecursive);
-
     }
 }

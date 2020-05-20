@@ -1,15 +1,9 @@
-package com.leetcode;
-
 /**
- * @author: gonghan
- * @description: 234. 回文链表
+ * @author: Mr. Gong
  * @date: 2020/4/4
- */
-
-/**
- * 234. 回文链表
- * 请判断一个链表是否为回文链表。
+ * @description: 234. 回文链表
  *
+ * 请判断一个链表是否为回文链表。
  * 示例 1:
  *
  * 输入: 1->2
@@ -25,7 +19,22 @@ package com.leetcode;
  * 链接：https://leetcode-cn.com/problems/palindrome-linked-list
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class PalindromeLinkedList_234 {
+
+public class Solution_234 {
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+
+        @Override
+        public String toString() {
+            return val + "->" + (next == null ? "NULL" : next);
+        }
+    }
+
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) {
             return true;
@@ -34,7 +43,7 @@ public class PalindromeLinkedList_234 {
         ListNode fast = head, slow = head,
                 prev = null, curr;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             // 当前节点即为慢指针指向节点
             curr = slow;
 
@@ -52,13 +61,13 @@ public class PalindromeLinkedList_234 {
         }
         System.out.println("swap: \n    " + prev);
         // 奇数情况，跳过中位数
-        if(fast != null){
+        if (fast != null) {
             //  跳过
             slow = slow.next;
         }
 
-        while(prev != null){
-            if(prev.val != slow.val) {
+        while (prev != null) {
+            if (prev.val != slow.val) {
                 return false;
             }
             prev = prev.next;
@@ -67,7 +76,6 @@ public class PalindromeLinkedList_234 {
 
         return true;
     }
-
 
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
@@ -78,7 +86,7 @@ public class PalindromeLinkedList_234 {
         l1.next.next.next.next = new ListNode(1);
         System.out.println("in: \n    " + l1);
 
-        PalindromeLinkedList_234 pl = new PalindromeLinkedList_234();
+        Solution_234 pl = new Solution_234();
         System.out.println("isPalindrome: \n    " + pl.isPalindrome(l1));
         System.out.println("in: \n    " + l1);
     }
