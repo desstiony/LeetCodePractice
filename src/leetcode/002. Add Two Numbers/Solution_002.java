@@ -52,6 +52,7 @@ public class Solution_002 {
             if(l2 != null)
                 l2 = l2.next;
         }
+
         if(carry == 1) {
             cur.next = new ListNode(carry);
         }
