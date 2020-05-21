@@ -27,5 +27,4 @@ hs_err_pid*
 将删除 .gitignore
 将删除 .idea/
 将删除 LeetCodePractice.iml
-将删除 src/leetcode/leetcode.iml
 将删除 leetcode/leetcode.iml
