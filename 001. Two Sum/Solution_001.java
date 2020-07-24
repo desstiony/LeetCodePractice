@@ -45,9 +45,11 @@ public class Solution_001 {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
+            // 判断complement是否存在于map中
             if (map.containsKey(complement)) {
                 return new int[]{map.get(complement), i};
             }
+            // 将数组value和index放入map的key和value
             map.put(nums[i], i);
         }
         throw new IllegalArgumentException("No tow sum solution");

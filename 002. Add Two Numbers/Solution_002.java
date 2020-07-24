@@ -34,8 +34,12 @@ public class Solution_002 {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // 定义头节点, 位数不足, 前边补0
         ListNode pre = new ListNode(0);
+        // 当前引用指向头节点, pre 和 cur指向堆内存中同一块地址
+        // 所以cur的内容修改后, pre内容也会跟着变,
         ListNode cur = pre;
+        // 进位判断标示, 0 or 1
         int carry = 0;
         while (l1 != null || l2 != null){
             int x = l1 == null ? 0 : l1.val;
@@ -47,12 +51,14 @@ public class Solution_002 {
             cur.next = new ListNode(sum);
             cur = cur.next;
 
-            if(l1 != null)
+            if(l1 != null) {
                 l1 = l1.next;
-            if(l2 != null)
+            }
+            if(l2 != null) {
                 l2 = l2.next;
+            }
         }
-
+        // 如果进位值为1, 在前边补1
         if(carry == 1) {
             cur.next = new ListNode(carry);
         }
@@ -60,13 +66,13 @@ public class Solution_002 {
     }
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(2);
-        l1.next = new ListNode(4);
-        l1.next.next = new ListNode(3);
+        ListNode l1 = new ListNode(9);
+        l1.next = new ListNode(9);
+        l1.next.next = new ListNode(9);
 
-        ListNode l2 = new ListNode(5);
-        l2.next = new ListNode(6);
-        l2.next.next = new ListNode(4);
+        ListNode l2 = new ListNode(9);
+        l2.next = new ListNode(9);
+        l2.next.next = new ListNode(9);
         System.out.println("input: \n" + l1 + " + " + l2);
         Solution_002 solution = new Solution_002();
 
